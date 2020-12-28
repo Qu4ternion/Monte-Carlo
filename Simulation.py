@@ -4,8 +4,8 @@ import numpy as np
 
 # Matrice de corrélation des défaillances de 3 catégories d'entreprises.
 corr_mat = np.array([[1,0.2981, 0.5345], 
-                	 [0.2981,1,0.5976], 
-					 [0.5345, 0.5976,1]])
+                     [0.2981,1,0.5976], 
+		     [0.5345, 0.5976,1]])
 
 # Décomposition de Cholesky de la matrice de corrélation
 L = np.linalg.cholesky(corr_mat)
