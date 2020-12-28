@@ -12,11 +12,11 @@ L = np.linalg.cholesky(corr_mat)
 
 # Génération de 3 points de défaillances (Default Points) via une Loi Normale Inverse:
 from scipy.stats import norm
-DPoint = np.array([norm.ppf(0.1), norm.ppf(0.2), norm.ppf(0.9)])	# generate random vector of 3 default points for each company
+DPoint = np.array([norm.ppf(0.1), norm.ppf(0.2), norm.ppf(0.9)])	
 
 # Paramètres:
 EAD = [1000, 7000, 4000]	# EAD (Exposure at Default)
-LGD  = 0.2					# LGD (Loss Given Default) moyen
+LGD  = 0.2			# LGD (Loss Given Default) moyen
 Loss_Distribution = []		# Liste vide des données de la distribution finale à estimer
 
 # Méthode de simulation:
@@ -29,7 +29,7 @@ def Monte_Carlo():
 	    asset_values = np.array(np.random.normal(0,1,3))
 	    x = np.matmul(asset_values, L)
 	            
-	    if asset_values[0] < DPoint[0]:			# default condition for company 1
+	    if asset_values[0] < DPoint[0]:		# default condition for company 1
 	        L1 = EAD[0]*LGD
 	        Total_Loss.append(L1)
 
